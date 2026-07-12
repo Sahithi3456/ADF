@@ -1,0 +1,34 @@
+{
+	"name": "outputbinary",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "adlsbinary",
+			"type": "LinkedServiceReference"
+		},
+		"parameters": {
+			"targetfolder": {
+				"type": "String"
+			},
+			"targetname": {
+				"type": "String"
+			}
+		},
+		"annotations": [],
+		"type": "Binary",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileName": {
+					"value": "@dataset().targetname",
+					"type": "Expression"
+				},
+				"folderPath": {
+					"value": "@dataset().targetfolder",
+					"type": "Expression"
+				},
+				"fileSystem": "txt"
+			}
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}
