@@ -1,9 +1,9 @@
 {
-	"name": "PL_FOREACH",
+	"name": "Getmetadata001",
 	"properties": {
 		"activities": [
 			{
-				"name": "PL_GETMETADATA",
+				"name": "Getmetadata001",
 				"type": "GetMetadata",
 				"dependsOn": [],
 				"policy": {
@@ -15,12 +15,18 @@
 				},
 				"userProperties": [],
 				"typeProperties": {
+					"dataset": {
+						"referenceName": "Binary001",
+						"type": "DatasetReference",
+						"parameters": {
+							"sourcefile": "*"
+						}
+					},
 					"fieldList": [
 						"childItems"
 					],
 					"storeSettings": {
 						"type": "AzureBlobStorageReadSettings",
-						"recursive": true,
 						"enablePartitionDiscovery": false
 					},
 					"formatSettings": {
@@ -29,11 +35,11 @@
 				}
 			},
 			{
-				"name": "PL_FOREACH",
+				"name": "ForEach001",
 				"type": "ForEach",
 				"dependsOn": [
 					{
-						"activity": "PL_GETMETADATA",
+						"activity": "Getmetadata001",
 						"dependencyConditions": [
 							"Succeeded"
 						]
@@ -42,27 +48,27 @@
 				"userProperties": [],
 				"typeProperties": {
 					"items": {
-						"value": "@activity('PL_GETMETADATA').output.childItems",
+						"value": "@activity('Getmetadata001').output.chidlitems",
 						"type": "Expression"
 					},
 					"isSequential": true,
 					"activities": [
 						{
-							"name": "Switch1",
+							"name": "Switch001",
 							"type": "Switch",
 							"dependsOn": [],
 							"userProperties": [],
 							"typeProperties": {
 								"on": {
-									"value": "@last(split(item().name, '.'))",
+									"value": "@last(split(item().name,'*'))",
 									"type": "Expression"
 								},
 								"cases": [
 									{
-										"value": "csv",
+										"value": "copycsv001",
 										"activities": [
 											{
-												"name": "Copycsv",
+												"name": "copycsv001",
 												"type": "Copy",
 												"dependsOn": [],
 												"policy": {
@@ -75,19 +81,13 @@
 												"userProperties": [],
 												"typeProperties": {
 													"source": {
-														"type": "DelimitedTextSource",
+														"type": "BinarySource",
 														"storeSettings": {
 															"type": "AzureBlobStorageReadSettings",
-															"recursive": true,
-															"wildcardFolderPath": {
-																"value": "@activity('PL_GETMETADATA').output.itemName",
-																"type": "Expression"
-															},
-															"wildcardFileName": "*.csv",
-															"enablePartitionDiscovery": false
+															"recursive": true
 														},
 														"formatSettings": {
-															"type": "DelimitedTextReadSettings"
+															"type": "BinaryReadSettings"
 														}
 													},
 													"sink": {
@@ -102,15 +102,43 @@
 														}
 													},
 													"enableStaging": false
-												}
+												},
+												"inputs": [
+													{
+														"referenceName": "Binary001",
+														"type": "DatasetReference",
+														"parameters": {
+															"sourcefile": {
+																"value": "@item().name",
+																"type": "Expression"
+															}
+														}
+													}
+												],
+												"outputs": [
+													{
+														"referenceName": "adlscsv001",
+														"type": "DatasetReference",
+														"parameters": {
+															"targetfolder": {
+																"value": "@'outputcsv'",
+																"type": "Expression"
+															},
+															"targetfilename": {
+																"value": "@item().name",
+																"type": "Expression"
+															}
+														}
+													}
+												]
 											}
 										]
 									},
 									{
-										"value": "txt",
+										"value": "copytext001",
 										"activities": [
 											{
-												"name": "Copytxt",
+												"name": "copytext001",
 												"type": "Copy",
 												"dependsOn": [],
 												"policy": {
@@ -139,7 +167,35 @@
 														}
 													},
 													"enableStaging": false
-												}
+												},
+												"inputs": [
+													{
+														"referenceName": "text001",
+														"type": "DatasetReference",
+														"parameters": {
+															"sourcefile": {
+																"value": "@item().name",
+																"type": "Expression"
+															}
+														}
+													}
+												],
+												"outputs": [
+													{
+														"referenceName": "adlstext001",
+														"type": "DatasetReference",
+														"parameters": {
+															"targetfolder": {
+																"value": "@'textoutput'",
+																"type": "Expression"
+															},
+															"targetfilename": {
+																"value": "@item().name",
+																"type": "Expression"
+															}
+														}
+													}
+												]
 											}
 										]
 									}
@@ -150,8 +206,6 @@
 				}
 			}
 		],
-		"annotations": [],
-		"lastPublishTime": "2026-07-10T13:30:55Z"
-	},
-	"type": "Microsoft.DataFactory/factories/pipelines"
+		"annotations": []
+	}
 }
