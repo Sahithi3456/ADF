@@ -1,0 +1,20 @@
+{
+	"name": "DS_MAX_VALUELKUP",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "LS_PARENTLKUP",
+			"type": "LinkedServiceReference"
+		},
+		"parameters": {
+			"schemaname": {
+				"type": "string"
+			},
+			"tablename": {
+				"type": "string"
+			}
+		},
+		"annotations": [],
+		"type": "SqlServerTable",
+		"schema": []
+	}
+}
