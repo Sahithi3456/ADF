@@ -494,7 +494,7 @@
 									]
 								},
 								{
-									"name": "EXEC_UPDATE_WATERMARKTABLE",
+									"name": "EXEC_UPDATE_WATERMARK",
 									"type": "ExecutePipeline",
 									"dependsOn": [
 										{
@@ -1034,7 +1034,7 @@
 							"value": "@concat(dataset().Table_Name,'/',formatDateTime(utcNow(),'yyyy/MM/dd'))",
 							"type": "Expression"
 						},
-						"fileSystem": "Retaildev_project"
+						"fileSystem": "Retaildevproject"
 					},
 					"compressionCodec": "snappy"
 				},

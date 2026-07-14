@@ -987,7 +987,7 @@
 									]
 								},
 								{
-									"name": "EXEC_UPDATE_WATERMARKTABLE",
+									"name": "EXEC_UPDATE_WATERMARK",
 									"type": "ExecutePipeline",
 									"dependsOn": [
 										{
