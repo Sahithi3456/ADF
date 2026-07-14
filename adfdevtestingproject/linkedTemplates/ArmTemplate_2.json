@@ -535,19 +535,22 @@
 									"value": {
 										"value": "@pipeline().parameters.TableSchema",
 										"type": "Expression"
-									}
+									},
+									"type": "String"
 								},
 								"TableName": {
 									"value": {
 										"value": "@pipeline().parameters.TableName",
 										"type": "Expression"
-									}
+									},
+									"type": "String"
 								},
 								"WatermarkColumn": {
 									"value": {
 										"value": "@pipeline().parameters.WatermarkColumn",
 										"type": "Expression"
-									}
+									},
+									"type": "String"
 								}
 							}
 						},
