@@ -130,7 +130,7 @@
 							]
 						},
 						{
-							"name": "EXEC_UPDATE_WATERMARKTABLE",
+							"name": "EXEC_UPDATE_WATERMARK",
 							"type": "ExecutePipeline",
 							"dependsOn": [
 								{
@@ -145,25 +145,7 @@
 							},
 							"userProperties": [],
 							"typeProperties": {
-								"pipeline": {
-									"referenceName": "Child Pipeline StoreProcedure",
-									"type": "PipelineReference"
-								},
-								"waitOnCompletion": true,
-								"parameters": {
-									"TableSchema": {
-										"value": "@pipeline().parameters.TableSchema",
-										"type": "Expression"
-									},
-									"TableName": {
-										"value": "@pipeline().parameters.TableName",
-										"type": "Expression"
-									},
-									"WatermarkColumn": {
-										"value": "@pipeline().parameters.WatermarkColumn",
-										"type": "Expression"
-									}
-								}
+								"waitOnCompletion": true
 							}
 						}
 					]
