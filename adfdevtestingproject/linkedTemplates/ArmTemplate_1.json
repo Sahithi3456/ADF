@@ -1,0 +1,485 @@
+{
+	"$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"type": "string",
+			"metadata": "Data Factory name",
+			"defaultValue": "adfdevtestingproject"
+		},
+		"csvadls001_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'csvadls001'"
+		},
+		"csvbinary_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'csvbinary'"
+		},
+		"csvblob_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'csvblob'"
+		},
+		"csvcopy001blob_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'csvcopy001blob'"
+		},
+		"csvsource_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'csvsource'"
+		},
+		"ls_binary_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'ls_binary'"
+		},
+		"outpuradlscsv_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'outpuradlscsv'"
+		},
+		"outputadlstxt_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'outputadlstxt'"
+		},
+		"text001_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'text001'"
+		},
+		"textadls001_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'textadls001'"
+		},
+		"textblob001_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'textblob001'"
+		},
+		"textsink_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'textsink'"
+		},
+		"textsource_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'textsource'"
+		},
+		"txtblob_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'txtblob'"
+		},
+		"csvadls001_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://adlsdevtestproject001.dfs.core.windows.net/"
+		},
+		"outpuradlscsv_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://adlsdevtestproject001.dfs.core.windows.net/"
+		},
+		"outputadlstxt_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://adlsdevtestproject001.dfs.core.windows.net/"
+		},
+		"textadls001_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://adlsdevtestproject001.dfs.core.windows.net/"
+		},
+		"textsink_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://adlsdevtestproject001.dfs.core.windows.net/"
+		}
+	},
+	"variables": {
+		"factoryId": "[concat('Microsoft.DataFactory/factories/', parameters('factoryName'))]"
+	},
+	"resources": [
+		{
+			"name": "[concat(parameters('factoryName'), '/csvadls001')]",
+			"type": "Microsoft.DataFactory/factories/linkedServices",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"type": "AzureBlobFS",
+				"typeProperties": {
+					"url": "[parameters('csvadls001_properties_typeProperties_url')]",
+					"accountKey": {
+						"type": "SecureString",
+						"value": "[parameters('csvadls001_accountKey')]"
+					}
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/csvbinary')]",
+			"type": "Microsoft.DataFactory/factories/linkedServices",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"type": "AzureBlobStorage",
+				"typeProperties": {
+					"connectionString": "[parameters('csvbinary_connectionString')]"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/csvblob')]",
+			"type": "Microsoft.DataFactory/factories/linkedServices",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"type": "AzureBlobStorage",
+				"typeProperties": {
+					"connectionString": "[parameters('csvblob_connectionString')]"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/csvcopy001blob')]",
+			"type": "Microsoft.DataFactory/factories/linkedServices",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"type": "AzureBlobStorage",
+				"typeProperties": {
+					"connectionString": "[parameters('csvcopy001blob_connectionString')]"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/csvsource')]",
+			"type": "Microsoft.DataFactory/factories/linkedServices",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"type": "AzureBlobStorage",
+				"typeProperties": {
+					"connectionString": "[parameters('csvsource_connectionString')]"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/ls_binary')]",
+			"type": "Microsoft.DataFactory/factories/linkedServices",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"type": "AzureBlobStorage",
+				"typeProperties": {
+					"connectionString": "[parameters('ls_binary_connectionString')]"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/outpuradlscsv')]",
+			"type": "Microsoft.DataFactory/factories/linkedServices",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"type": "AzureBlobFS",
+				"typeProperties": {
+					"url": "[parameters('outpuradlscsv_properties_typeProperties_url')]",
+					"accountKey": {
+						"type": "SecureString",
+						"value": "[parameters('outpuradlscsv_accountKey')]"
+					}
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/outputadlstxt')]",
+			"type": "Microsoft.DataFactory/factories/linkedServices",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"type": "AzureBlobFS",
+				"typeProperties": {
+					"url": "[parameters('outputadlstxt_properties_typeProperties_url')]",
+					"accountKey": {
+						"type": "SecureString",
+						"value": "[parameters('outputadlstxt_accountKey')]"
+					}
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/text001')]",
+			"type": "Microsoft.DataFactory/factories/linkedServices",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"type": "AzureBlobStorage",
+				"typeProperties": {
+					"connectionString": "[parameters('text001_connectionString')]"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/textadls001')]",
+			"type": "Microsoft.DataFactory/factories/linkedServices",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"type": "AzureBlobFS",
+				"typeProperties": {
+					"url": "[parameters('textadls001_properties_typeProperties_url')]",
+					"accountKey": {
+						"type": "SecureString",
+						"value": "[parameters('textadls001_accountKey')]"
+					}
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/textblob001')]",
+			"type": "Microsoft.DataFactory/factories/linkedServices",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"type": "AzureBlobStorage",
+				"typeProperties": {
+					"connectionString": "[parameters('textblob001_connectionString')]"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/textsink')]",
+			"type": "Microsoft.DataFactory/factories/linkedServices",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"type": "AzureBlobFS",
+				"typeProperties": {
+					"url": "[parameters('textsink_properties_typeProperties_url')]",
+					"accountKey": {
+						"type": "SecureString",
+						"value": "[parameters('textsink_accountKey')]"
+					}
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/textsource')]",
+			"type": "Microsoft.DataFactory/factories/linkedServices",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"type": "AzureBlobStorage",
+				"typeProperties": {
+					"connectionString": "[parameters('textsource_connectionString')]"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/txtblob')]",
+			"type": "Microsoft.DataFactory/factories/linkedServices",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"type": "AzureBlobStorage",
+				"typeProperties": {
+					"connectionString": "[parameters('txtblob_connectionString')]"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/integrationRuntime1')]",
+			"type": "Microsoft.DataFactory/factories/integrationRuntimes",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"type": "SelfHosted",
+				"typeProperties": {}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/DS_SQLTABLE_PARQUET')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "LS_SQLTABLE_PARQUET",
+					"type": "LinkedServiceReference"
+				},
+				"parameters": {
+					"Table_Name": {
+						"type": "string"
+					}
+				},
+				"annotations": [],
+				"type": "Parquet",
+				"typeProperties": {
+					"location": {
+						"type": "AzureBlobFSLocation",
+						"fileName": {
+							"value": "@concat(dataset().Table_Name,'_',formatDateTime(utcNow(),'yyyyMMddHHmmss'),'.parquet')",
+							"type": "Expression"
+						},
+						"folderPath": {
+							"value": "@concat(dataset().Table_Name,'/',formatDateTime(utcNow(),'yyyy/MM/dd'))",
+							"type": "Expression"
+						},
+						"fileSystem": "Retaildev_project"
+					},
+					"compressionCodec": "snappy"
+				},
+				"schema": []
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/adlscsv')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "adlscsv",
+					"type": "LinkedServiceReference"
+				},
+				"parameters": {
+					"targetfolder": {
+						"type": "String"
+					},
+					"targetfilename": {
+						"type": "String"
+					}
+				},
+				"annotations": [],
+				"type": "DelimitedText",
+				"typeProperties": {
+					"location": {
+						"type": "AzureBlobFSLocation",
+						"fileName": {
+							"value": "@dataset().targetfilename",
+							"type": "Expression"
+						},
+						"folderPath": {
+							"value": "@dataset().targetfolder",
+							"type": "Expression"
+						},
+						"fileSystem": "outputcsv"
+					},
+					"columnDelimiter": ",",
+					"escapeChar": "\\",
+					"firstRowAsHeader": true,
+					"quoteChar": "\""
+				},
+				"schema": []
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/binary')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "blobbinary",
+					"type": "LinkedServiceReference"
+				},
+				"parameters": {
+					"sourcefile": {
+						"type": "String"
+					}
+				},
+				"annotations": [],
+				"type": "Binary",
+				"typeProperties": {
+					"location": {
+						"type": "AzureBlobStorageLocation",
+						"fileName": {
+							"value": "@dataset().sourcefile",
+							"type": "Expression"
+						},
+						"container": "inputcsv"
+					}
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/csvbinary')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "csvbinary",
+					"type": "LinkedServiceReference"
+				},
+				"parameters": {
+					"source": {
+						"type": "String"
+					}
+				},
+				"annotations": [],
+				"type": "Binary",
+				"typeProperties": {
+					"location": {
+						"type": "AzureBlobStorageLocation",
+						"fileName": {
+							"value": "@dataset().source",
+							"type": "Expression"
+						},
+						"container": "inputcsv"
+					}
+				}
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/linkedServices/csvbinary')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/csvsource')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "csvsource",
+					"type": "LinkedServiceReference"
+				},
+				"parameters": {
+					"sourcefile": {
+						"type": "String"
+					}
+				},
+				"annotations": [],
+				"type": "DelimitedText",
+				"typeProperties": {
+					"location": {
+						"type": "AzureBlobStorageLocation",
+						"fileName": {
+							"value": "@dataset().sourcefile",
+							"type": "Expression"
+						},
+						"container": "inputcsv"
+					},
+					"columnDelimiter": ",",
+					"escapeChar": "\\",
+					"firstRowAsHeader": true,
+					"quoteChar": "\""
+				},
+				"schema": [
+					{
+						"name": "SIC_Code",
+						"type": "String"
+					},
+					{
+						"name": "Description",
+						"type": "String"
+					}
+				]
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/linkedServices/csvsource')]"
+			]
+		}
+	]
+}

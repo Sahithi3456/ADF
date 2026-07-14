@@ -1,0 +1,270 @@
+{
+	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"value": "adfdevtestingproject"
+		},
+		"DS_ADLSPARQUET_accountKey": {
+			"value": ""
+		},
+		"DS_BLOBCSVPARQUET_accountKey": {
+			"value": ""
+		},
+		"DS_GETMETADATA_connectionString": {
+			"value": ""
+		},
+		"DS_LOOKUP_connectionString": {
+			"value": ""
+		},
+		"DS_OUTPUTRADLSARQUET_accountKey": {
+			"value": ""
+		},
+		"DS_PARENTSQLSERVER_password": {
+			"value": ""
+		},
+		"DS_SQLTABLE_PARQUET_accountKey": {
+			"value": ""
+		},
+		"LSCSVSOURCE_connectionString": {
+			"value": ""
+		},
+		"LS_ADLSPARQUET_accountKey": {
+			"value": ""
+		},
+		"LS_BINARYBLOB_connectionString": {
+			"value": ""
+		},
+		"LS_BLOBCSV_ADLSPARQUET_connectionString": {
+			"value": ""
+		},
+		"LS_GETMETADATA_connectionString": {
+			"value": ""
+		},
+		"LS_LKUP_MAXVALUE_password": {
+			"value": ""
+		},
+		"LS_ONPREM_SQLSERVER_password": {
+			"value": ""
+		},
+		"LS_ONPREM_SQLsERVER_DW_password": {
+			"value": ""
+		},
+		"LS_PARENT_SQLSERVER_DW_password": {
+			"value": ""
+		},
+		"LS_SQLCSV_ADLSPARQUET_password": {
+			"value": ""
+		},
+		"LS_SQLSERVER_TBLKUP_password": {
+			"value": ""
+		},
+		"LS_SQLSERVER_TBLLKUP_password": {
+			"value": ""
+		},
+		"LS_SQLTABLE_PARQUET_accountKey": {
+			"value": ""
+		},
+		"LS_binary001_connectionString": {
+			"value": ""
+		},
+		"OUTPUTCSVADLS_accountKey": {
+			"value": ""
+		},
+		"adlsbinary_accountKey": {
+			"value": ""
+		},
+		"adlscsv_accountKey": {
+			"value": ""
+		},
+		"adlscsv001_accountKey": {
+			"value": ""
+		},
+		"adlsstext001_accountKey": {
+			"value": ""
+		},
+		"adlstestt001_accountKey": {
+			"value": ""
+		},
+		"adlstext001_accountKey": {
+			"value": ""
+		},
+		"adlstextt001_accountKey": {
+			"value": ""
+		},
+		"blobbinary_connectionString": {
+			"value": ""
+		},
+		"csvadls001_accountKey": {
+			"value": ""
+		},
+		"csvbinary_connectionString": {
+			"value": ""
+		},
+		"csvblob_connectionString": {
+			"value": ""
+		},
+		"csvcopy001blob_connectionString": {
+			"value": ""
+		},
+		"csvsource_connectionString": {
+			"value": ""
+		},
+		"ls_binary_connectionString": {
+			"value": ""
+		},
+		"outpuradlscsv_accountKey": {
+			"value": ""
+		},
+		"outputadlstxt_accountKey": {
+			"value": ""
+		},
+		"text001_connectionString": {
+			"value": ""
+		},
+		"textadls001_accountKey": {
+			"value": ""
+		},
+		"textblob001_connectionString": {
+			"value": ""
+		},
+		"textsink_accountKey": {
+			"value": ""
+		},
+		"textsource_connectionString": {
+			"value": ""
+		},
+		"txtblob_connectionString": {
+			"value": ""
+		},
+		"DS_ADLSPARQUET_properties_typeProperties_url": {
+			"value": "https://adlsdevtestproject001.dfs.core.windows.net/"
+		},
+		"DS_BLOBCSVPARQUET_properties_typeProperties_url": {
+			"value": "https://adlsdevtestproject001.dfs.core.windows.net/"
+		},
+		"DS_OUTPUTRADLSARQUET_properties_typeProperties_url": {
+			"value": "https://adlsdevtestproject001.dfs.core.windows.net/"
+		},
+		"DS_PARENTSQLSERVER_properties_typeProperties_server": {
+			"value": "localhost\\SQLEXPRESS"
+		},
+		"DS_PARENTSQLSERVER_properties_typeProperties_database": {
+			"value": "Retaildev_project"
+		},
+		"DS_PARENTSQLSERVER_properties_typeProperties_userName": {
+			"value": "Sahithisqlserver"
+		},
+		"DS_SQLTABLE_PARQUET_properties_typeProperties_url": {
+			"value": "https://adlsdevtestproject001.dfs.core.windows.net/"
+		},
+		"LS_ADLSPARQUET_properties_typeProperties_url": {
+			"value": "https://adlsdevtestproject001.dfs.core.windows.net/"
+		},
+		"LS_LKUP_MAXVALUE_properties_typeProperties_server": {
+			"value": "localhost\\SQLEXPRESS"
+		},
+		"LS_LKUP_MAXVALUE_properties_typeProperties_database": {
+			"value": "Retaildev_project"
+		},
+		"LS_LKUP_MAXVALUE_properties_typeProperties_userName": {
+			"value": "Sahithisqlserver"
+		},
+		"LS_ONPREM_SQLSERVER_properties_typeProperties_server": {
+			"value": "localhost\\SQLEXPRESS"
+		},
+		"LS_ONPREM_SQLSERVER_properties_typeProperties_database": {
+			"value": "Retaildev_project"
+		},
+		"LS_ONPREM_SQLSERVER_properties_typeProperties_userName": {
+			"value": "Sahithisqlserver"
+		},
+		"LS_ONPREM_SQLsERVER_DW_properties_typeProperties_server": {
+			"value": "localhost\\SQLEXPRESS"
+		},
+		"LS_ONPREM_SQLsERVER_DW_properties_typeProperties_database": {
+			"value": "Retaildev_project"
+		},
+		"LS_ONPREM_SQLsERVER_DW_properties_typeProperties_userName": {
+			"value": "Sahithisqlserver"
+		},
+		"LS_PARENT_SQLSERVER_DW_properties_typeProperties_server": {
+			"value": " localhost\\SQLEXPRESS"
+		},
+		"LS_PARENT_SQLSERVER_DW_properties_typeProperties_database": {
+			"value": "Retaildev_project"
+		},
+		"LS_PARENT_SQLSERVER_DW_properties_typeProperties_userName": {
+			"value": "Sahithisqlserver"
+		},
+		"LS_SQLCSV_ADLSPARQUET_properties_typeProperties_server": {
+			"value": "localhost\\SQLEXPRESS"
+		},
+		"LS_SQLCSV_ADLSPARQUET_properties_typeProperties_database": {
+			"value": "visionboard"
+		},
+		"LS_SQLCSV_ADLSPARQUET_properties_typeProperties_userName": {
+			"value": "Sahithisqlserver"
+		},
+		"LS_SQLSERVER_TBLKUP_properties_typeProperties_server": {
+			"value": "localhost\\SQLEXPRESS"
+		},
+		"LS_SQLSERVER_TBLKUP_properties_typeProperties_database": {
+			"value": "Retaildev_project"
+		},
+		"LS_SQLSERVER_TBLKUP_properties_typeProperties_userName": {
+			"value": "Sahithisqlserver"
+		},
+		"LS_SQLSERVER_TBLLKUP_properties_typeProperties_server": {
+			"value": " localhost\\SQLEXPRESS"
+		},
+		"LS_SQLSERVER_TBLLKUP_properties_typeProperties_database": {
+			"value": "Retaildev_project"
+		},
+		"LS_SQLSERVER_TBLLKUP_properties_typeProperties_userName": {
+			"value": "Sahithisqlserver"
+		},
+		"LS_SQLTABLE_PARQUET_properties_typeProperties_url": {
+			"value": "https://adlsdevtestproject001.dfs.core.windows.net/"
+		},
+		"OUTPUTCSVADLS_properties_typeProperties_url": {
+			"value": "https://adlsdevtestproject001.dfs.core.windows.net/"
+		},
+		"adlsbinary_properties_typeProperties_url": {
+			"value": "https://adlsdevtestproject001.dfs.core.windows.net/"
+		},
+		"adlscsv_properties_typeProperties_url": {
+			"value": "https://adlsdevtestproject001.dfs.core.windows.net/"
+		},
+		"adlscsv001_properties_typeProperties_url": {
+			"value": "https://adlsdevtestproject001.dfs.core.windows.net/"
+		},
+		"adlsstext001_properties_typeProperties_url": {
+			"value": "https://adlsdevtestproject001.dfs.core.windows.net/"
+		},
+		"adlstestt001_properties_typeProperties_url": {
+			"value": "https://adlsdevtestproject001.dfs.core.windows.net/"
+		},
+		"adlstext001_properties_typeProperties_url": {
+			"value": "https://adlsdevtestproject001.dfs.core.windows.net/"
+		},
+		"adlstextt001_properties_typeProperties_url": {
+			"value": "https://adlsdevtestproject001.dfs.core.windows.net/"
+		},
+		"csvadls001_properties_typeProperties_url": {
+			"value": "https://adlsdevtestproject001.dfs.core.windows.net/"
+		},
+		"outpuradlscsv_properties_typeProperties_url": {
+			"value": "https://adlsdevtestproject001.dfs.core.windows.net/"
+		},
+		"outputadlstxt_properties_typeProperties_url": {
+			"value": "https://adlsdevtestproject001.dfs.core.windows.net/"
+		},
+		"textadls001_properties_typeProperties_url": {
+			"value": "https://adlsdevtestproject001.dfs.core.windows.net/"
+		},
+		"textsink_properties_typeProperties_url": {
+			"value": "https://adlsdevtestproject001.dfs.core.windows.net/"
+		}
+	}
+}
