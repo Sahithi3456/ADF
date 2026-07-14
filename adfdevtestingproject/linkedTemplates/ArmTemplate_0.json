@@ -31,6 +31,10 @@
 			"type": "secureString",
 			"metadata": "Secure string for 'connectionString' of 'LSCSVSOURCE'"
 		},
+		"LS_ADLSPARQUET_SQL_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'LS_ADLSPARQUET_SQL'"
+		},
 		"LS_BINARYBLOB_connectionString": {
 			"type": "secureString",
 			"metadata": "Secure string for 'connectionString' of 'LS_BINARYBLOB'"
@@ -83,10 +87,6 @@
 			"type": "secureString",
 			"metadata": "Secure string for 'accountKey' of 'adlstextt001'"
 		},
-		"blobbinary_connectionString": {
-			"type": "secureString",
-			"metadata": "Secure string for 'connectionString' of 'blobbinary'"
-		},
 		"DS_BLOBCSVPARQUET_properties_typeProperties_url": {
 			"type": "string",
 			"defaultValue": "https://adlsdevtestproject001.dfs.core.windows.net/"
@@ -98,6 +98,10 @@
 		"DS_SQLTABLE_PARQUET_properties_typeProperties_url": {
 			"type": "string",
 			"defaultValue": "https://adlsdevtestproject001.dfs.core.windows.net/"
+		},
+		"LS_ADLSPARQUET_SQL_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://adlsdevtestproject001.dfs.core.windows.net"
 		},
 		"LS_SQLTABLE_PARQUET_properties_typeProperties_url": {
 			"type": "string",
@@ -226,6 +230,23 @@
 				"type": "AzureBlobStorage",
 				"typeProperties": {
 					"connectionString": "[parameters('LSCSVSOURCE_connectionString')]"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/LS_ADLSPARQUET_SQL')]",
+			"type": "Microsoft.DataFactory/factories/linkedServices",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"type": "AzureBlobFS",
+				"typeProperties": {
+					"url": "[parameters('LS_ADLSPARQUET_SQL_properties_typeProperties_url')]",
+					"accountKey": {
+						"type": "SecureString",
+						"value": "[parameters('LS_ADLSPARQUET_SQL_accountKey')]"
+					}
 				}
 			},
 			"dependsOn": []
@@ -431,19 +452,6 @@
 						"type": "SecureString",
 						"value": "[parameters('adlstextt001_accountKey')]"
 					}
-				}
-			},
-			"dependsOn": []
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/blobbinary')]",
-			"type": "Microsoft.DataFactory/factories/linkedServices",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"annotations": [],
-				"type": "AzureBlobStorage",
-				"typeProperties": {
-					"connectionString": "[parameters('blobbinary_connectionString')]"
 				}
 			},
 			"dependsOn": []

@@ -23,6 +23,9 @@
 		"DS_PARENTSQLSERVER_password": {
 			"value": ""
 		},
+		"DS_SQLSERVER_LKUPTABLE_password": {
+			"value": ""
+		},
 		"DS_SQLTABLE_PARQUET_accountKey": {
 			"value": ""
 		},
@@ -30,6 +33,9 @@
 			"value": ""
 		},
 		"LS_ADLSPARQUET_accountKey": {
+			"value": ""
+		},
+		"LS_ADLSPARQUET_SQL_accountKey": {
 			"value": ""
 		},
 		"LS_BINARYBLOB_connectionString": {
@@ -50,10 +56,19 @@
 		"LS_ONPREM_SQLsERVER_DW_password": {
 			"value": ""
 		},
+		"LS_PARENTLKUP_password": {
+			"value": ""
+		},
 		"LS_PARENT_SQLSERVER_DW_password": {
 			"value": ""
 		},
 		"LS_SQLCSV_ADLSPARQUET_password": {
+			"value": ""
+		},
+		"LS_SQLSERVER_LKUPTABLE_password": {
+			"value": ""
+		},
+		"LS_SQLSERVER_LKUPTABLE1_password": {
 			"value": ""
 		},
 		"LS_SQLSERVER_TBLKUP_password": {
@@ -155,11 +170,23 @@
 		"DS_PARENTSQLSERVER_properties_typeProperties_userName": {
 			"value": "Sahithisqlserver"
 		},
+		"DS_SQLSERVER_LKUPTABLE_properties_typeProperties_server": {
+			"value": "localhost\\SQLEXPRESS"
+		},
+		"DS_SQLSERVER_LKUPTABLE_properties_typeProperties_database": {
+			"value": "Retaildevproject"
+		},
+		"DS_SQLSERVER_LKUPTABLE_properties_typeProperties_userName": {
+			"value": "Sahithisqlserver"
+		},
 		"DS_SQLTABLE_PARQUET_properties_typeProperties_url": {
 			"value": "https://adlsdevtestproject001.dfs.core.windows.net/"
 		},
 		"LS_ADLSPARQUET_properties_typeProperties_url": {
 			"value": "https://adlsdevtestproject001.dfs.core.windows.net/"
+		},
+		"LS_ADLSPARQUET_SQL_properties_typeProperties_url": {
+			"value": "https://adlsdevtestproject001.dfs.core.windows.net"
 		},
 		"LS_LKUP_MAXVALUE_properties_typeProperties_server": {
 			"value": "localhost\\SQLEXPRESS"
@@ -188,6 +215,15 @@
 		"LS_ONPREM_SQLsERVER_DW_properties_typeProperties_userName": {
 			"value": "Sahithisqlserver"
 		},
+		"LS_PARENTLKUP_properties_typeProperties_server": {
+			"value": " localhost\\SQLEXPRESS"
+		},
+		"LS_PARENTLKUP_properties_typeProperties_database": {
+			"value": "Retaildevproject"
+		},
+		"LS_PARENTLKUP_properties_typeProperties_userName": {
+			"value": "Sahithisqlserver"
+		},
 		"LS_PARENT_SQLSERVER_DW_properties_typeProperties_server": {
 			"value": " localhost\\SQLEXPRESS"
 		},
@@ -204,6 +240,24 @@
 			"value": "visionboard"
 		},
 		"LS_SQLCSV_ADLSPARQUET_properties_typeProperties_userName": {
+			"value": "Sahithisqlserver"
+		},
+		"LS_SQLSERVER_LKUPTABLE_properties_typeProperties_server": {
+			"value": "localhost\\SQLEXPRESS"
+		},
+		"LS_SQLSERVER_LKUPTABLE_properties_typeProperties_database": {
+			"value": "Retaildevproject"
+		},
+		"LS_SQLSERVER_LKUPTABLE_properties_typeProperties_userName": {
+			"value": "Sahithisqlserver"
+		},
+		"LS_SQLSERVER_LKUPTABLE1_properties_typeProperties_server": {
+			"value": "localhost\\SQLEXPRESS"
+		},
+		"LS_SQLSERVER_LKUPTABLE1_properties_typeProperties_database": {
+			"value": "Retaildevproject"
+		},
+		"LS_SQLSERVER_LKUPTABLE1_properties_typeProperties_userName": {
 			"value": "Sahithisqlserver"
 		},
 		"LS_SQLSERVER_TBLKUP_properties_typeProperties_server": {

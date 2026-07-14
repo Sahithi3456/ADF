@@ -31,6 +31,10 @@
 			"type": "secureString",
 			"metadata": "Secure string for 'password' of 'DS_PARENTSQLSERVER'"
 		},
+		"DS_SQLSERVER_LKUPTABLE_password": {
+			"type": "secureString",
+			"metadata": "Secure string for 'password' of 'DS_SQLSERVER_LKUPTABLE'"
+		},
 		"DS_SQLTABLE_PARQUET_accountKey": {
 			"type": "secureString",
 			"metadata": "Secure string for 'accountKey' of 'DS_SQLTABLE_PARQUET'"
@@ -42,6 +46,10 @@
 		"LS_ADLSPARQUET_accountKey": {
 			"type": "secureString",
 			"metadata": "Secure string for 'accountKey' of 'LS_ADLSPARQUET'"
+		},
+		"LS_ADLSPARQUET_SQL_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'LS_ADLSPARQUET_SQL'"
 		},
 		"LS_BINARYBLOB_connectionString": {
 			"type": "secureString",
@@ -67,6 +75,10 @@
 			"type": "secureString",
 			"metadata": "Secure string for 'password' of 'LS_ONPREM_SQLsERVER_DW'"
 		},
+		"LS_PARENTLKUP_password": {
+			"type": "secureString",
+			"metadata": "Secure string for 'password' of 'LS_PARENTLKUP'"
+		},
 		"LS_PARENT_SQLSERVER_DW_password": {
 			"type": "secureString",
 			"metadata": "Secure string for 'password' of 'LS_PARENT_SQLSERVER_DW'"
@@ -74,6 +86,14 @@
 		"LS_SQLCSV_ADLSPARQUET_password": {
 			"type": "secureString",
 			"metadata": "Secure string for 'password' of 'LS_SQLCSV_ADLSPARQUET'"
+		},
+		"LS_SQLSERVER_LKUPTABLE_password": {
+			"type": "secureString",
+			"metadata": "Secure string for 'password' of 'LS_SQLSERVER_LKUPTABLE'"
+		},
+		"LS_SQLSERVER_LKUPTABLE1_password": {
+			"type": "secureString",
+			"metadata": "Secure string for 'password' of 'LS_SQLSERVER_LKUPTABLE1'"
 		},
 		"LS_SQLSERVER_TBLKUP_password": {
 			"type": "secureString",
@@ -207,6 +227,18 @@
 			"type": "string",
 			"defaultValue": "Sahithisqlserver"
 		},
+		"DS_SQLSERVER_LKUPTABLE_properties_typeProperties_server": {
+			"type": "string",
+			"defaultValue": "localhost\\SQLEXPRESS"
+		},
+		"DS_SQLSERVER_LKUPTABLE_properties_typeProperties_database": {
+			"type": "string",
+			"defaultValue": "Retaildevproject"
+		},
+		"DS_SQLSERVER_LKUPTABLE_properties_typeProperties_userName": {
+			"type": "string",
+			"defaultValue": "Sahithisqlserver"
+		},
 		"DS_SQLTABLE_PARQUET_properties_typeProperties_url": {
 			"type": "string",
 			"defaultValue": "https://adlsdevtestproject001.dfs.core.windows.net/"
@@ -214,6 +246,10 @@
 		"LS_ADLSPARQUET_properties_typeProperties_url": {
 			"type": "string",
 			"defaultValue": "https://adlsdevtestproject001.dfs.core.windows.net/"
+		},
+		"LS_ADLSPARQUET_SQL_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://adlsdevtestproject001.dfs.core.windows.net"
 		},
 		"LS_LKUP_MAXVALUE_properties_typeProperties_server": {
 			"type": "string",
@@ -251,6 +287,18 @@
 			"type": "string",
 			"defaultValue": "Sahithisqlserver"
 		},
+		"LS_PARENTLKUP_properties_typeProperties_server": {
+			"type": "string",
+			"defaultValue": " localhost\\SQLEXPRESS"
+		},
+		"LS_PARENTLKUP_properties_typeProperties_database": {
+			"type": "string",
+			"defaultValue": "Retaildevproject"
+		},
+		"LS_PARENTLKUP_properties_typeProperties_userName": {
+			"type": "string",
+			"defaultValue": "Sahithisqlserver"
+		},
 		"LS_PARENT_SQLSERVER_DW_properties_typeProperties_server": {
 			"type": "string",
 			"defaultValue": " localhost\\SQLEXPRESS"
@@ -272,6 +320,30 @@
 			"defaultValue": "visionboard"
 		},
 		"LS_SQLCSV_ADLSPARQUET_properties_typeProperties_userName": {
+			"type": "string",
+			"defaultValue": "Sahithisqlserver"
+		},
+		"LS_SQLSERVER_LKUPTABLE_properties_typeProperties_server": {
+			"type": "string",
+			"defaultValue": "localhost\\SQLEXPRESS"
+		},
+		"LS_SQLSERVER_LKUPTABLE_properties_typeProperties_database": {
+			"type": "string",
+			"defaultValue": "Retaildevproject"
+		},
+		"LS_SQLSERVER_LKUPTABLE_properties_typeProperties_userName": {
+			"type": "string",
+			"defaultValue": "Sahithisqlserver"
+		},
+		"LS_SQLSERVER_LKUPTABLE1_properties_typeProperties_server": {
+			"type": "string",
+			"defaultValue": "localhost\\SQLEXPRESS"
+		},
+		"LS_SQLSERVER_LKUPTABLE1_properties_typeProperties_database": {
+			"type": "string",
+			"defaultValue": "Retaildevproject"
+		},
+		"LS_SQLSERVER_LKUPTABLE1_properties_typeProperties_userName": {
 			"type": "string",
 			"defaultValue": "Sahithisqlserver"
 		},
@@ -400,6 +472,9 @@
 					"LSCSVSOURCE_connectionString": {
 						"value": "[parameters('LSCSVSOURCE_connectionString')]"
 					},
+					"LS_ADLSPARQUET_SQL_accountKey": {
+						"value": "[parameters('LS_ADLSPARQUET_SQL_accountKey')]"
+					},
 					"LS_BINARYBLOB_connectionString": {
 						"value": "[parameters('LS_BINARYBLOB_connectionString')]"
 					},
@@ -439,9 +514,6 @@
 					"adlstextt001_accountKey": {
 						"value": "[parameters('adlstextt001_accountKey')]"
 					},
-					"blobbinary_connectionString": {
-						"value": "[parameters('blobbinary_connectionString')]"
-					},
 					"DS_BLOBCSVPARQUET_properties_typeProperties_url": {
 						"value": "[parameters('DS_BLOBCSVPARQUET_properties_typeProperties_url')]"
 					},
@@ -450,6 +522,9 @@
 					},
 					"DS_SQLTABLE_PARQUET_properties_typeProperties_url": {
 						"value": "[parameters('DS_SQLTABLE_PARQUET_properties_typeProperties_url')]"
+					},
+					"LS_ADLSPARQUET_SQL_properties_typeProperties_url": {
+						"value": "[parameters('LS_ADLSPARQUET_SQL_properties_typeProperties_url')]"
 					},
 					"LS_SQLTABLE_PARQUET_properties_typeProperties_url": {
 						"value": "[parameters('LS_SQLTABLE_PARQUET_properties_typeProperties_url')]"
@@ -495,6 +570,9 @@
 				"parameters": {
 					"factoryName": {
 						"value": "[parameters('factoryName')]"
+					},
+					"blobbinary_connectionString": {
+						"value": "[parameters('blobbinary_connectionString')]"
 					},
 					"csvadls001_accountKey": {
 						"value": "[parameters('csvadls001_accountKey')]"
@@ -579,6 +657,9 @@
 					"DS_PARENTSQLSERVER_password": {
 						"value": "[parameters('DS_PARENTSQLSERVER_password')]"
 					},
+					"DS_SQLSERVER_LKUPTABLE_password": {
+						"value": "[parameters('DS_SQLSERVER_LKUPTABLE_password')]"
+					},
 					"LS_ADLSPARQUET_accountKey": {
 						"value": "[parameters('LS_ADLSPARQUET_accountKey')]"
 					},
@@ -591,11 +672,20 @@
 					"LS_ONPREM_SQLsERVER_DW_password": {
 						"value": "[parameters('LS_ONPREM_SQLsERVER_DW_password')]"
 					},
+					"LS_PARENTLKUP_password": {
+						"value": "[parameters('LS_PARENTLKUP_password')]"
+					},
 					"LS_PARENT_SQLSERVER_DW_password": {
 						"value": "[parameters('LS_PARENT_SQLSERVER_DW_password')]"
 					},
 					"LS_SQLCSV_ADLSPARQUET_password": {
 						"value": "[parameters('LS_SQLCSV_ADLSPARQUET_password')]"
+					},
+					"LS_SQLSERVER_LKUPTABLE_password": {
+						"value": "[parameters('LS_SQLSERVER_LKUPTABLE_password')]"
+					},
+					"LS_SQLSERVER_LKUPTABLE1_password": {
+						"value": "[parameters('LS_SQLSERVER_LKUPTABLE1_password')]"
 					},
 					"LS_SQLSERVER_TBLKUP_password": {
 						"value": "[parameters('LS_SQLSERVER_TBLKUP_password')]"
@@ -614,6 +704,15 @@
 					},
 					"DS_PARENTSQLSERVER_properties_typeProperties_userName": {
 						"value": "[parameters('DS_PARENTSQLSERVER_properties_typeProperties_userName')]"
+					},
+					"DS_SQLSERVER_LKUPTABLE_properties_typeProperties_server": {
+						"value": "[parameters('DS_SQLSERVER_LKUPTABLE_properties_typeProperties_server')]"
+					},
+					"DS_SQLSERVER_LKUPTABLE_properties_typeProperties_database": {
+						"value": "[parameters('DS_SQLSERVER_LKUPTABLE_properties_typeProperties_database')]"
+					},
+					"DS_SQLSERVER_LKUPTABLE_properties_typeProperties_userName": {
+						"value": "[parameters('DS_SQLSERVER_LKUPTABLE_properties_typeProperties_userName')]"
 					},
 					"LS_ADLSPARQUET_properties_typeProperties_url": {
 						"value": "[parameters('LS_ADLSPARQUET_properties_typeProperties_url')]"
@@ -645,6 +744,15 @@
 					"LS_ONPREM_SQLsERVER_DW_properties_typeProperties_userName": {
 						"value": "[parameters('LS_ONPREM_SQLsERVER_DW_properties_typeProperties_userName')]"
 					},
+					"LS_PARENTLKUP_properties_typeProperties_server": {
+						"value": "[parameters('LS_PARENTLKUP_properties_typeProperties_server')]"
+					},
+					"LS_PARENTLKUP_properties_typeProperties_database": {
+						"value": "[parameters('LS_PARENTLKUP_properties_typeProperties_database')]"
+					},
+					"LS_PARENTLKUP_properties_typeProperties_userName": {
+						"value": "[parameters('LS_PARENTLKUP_properties_typeProperties_userName')]"
+					},
 					"LS_PARENT_SQLSERVER_DW_properties_typeProperties_server": {
 						"value": "[parameters('LS_PARENT_SQLSERVER_DW_properties_typeProperties_server')]"
 					},
@@ -662,6 +770,24 @@
 					},
 					"LS_SQLCSV_ADLSPARQUET_properties_typeProperties_userName": {
 						"value": "[parameters('LS_SQLCSV_ADLSPARQUET_properties_typeProperties_userName')]"
+					},
+					"LS_SQLSERVER_LKUPTABLE_properties_typeProperties_server": {
+						"value": "[parameters('LS_SQLSERVER_LKUPTABLE_properties_typeProperties_server')]"
+					},
+					"LS_SQLSERVER_LKUPTABLE_properties_typeProperties_database": {
+						"value": "[parameters('LS_SQLSERVER_LKUPTABLE_properties_typeProperties_database')]"
+					},
+					"LS_SQLSERVER_LKUPTABLE_properties_typeProperties_userName": {
+						"value": "[parameters('LS_SQLSERVER_LKUPTABLE_properties_typeProperties_userName')]"
+					},
+					"LS_SQLSERVER_LKUPTABLE1_properties_typeProperties_server": {
+						"value": "[parameters('LS_SQLSERVER_LKUPTABLE1_properties_typeProperties_server')]"
+					},
+					"LS_SQLSERVER_LKUPTABLE1_properties_typeProperties_database": {
+						"value": "[parameters('LS_SQLSERVER_LKUPTABLE1_properties_typeProperties_database')]"
+					},
+					"LS_SQLSERVER_LKUPTABLE1_properties_typeProperties_userName": {
+						"value": "[parameters('LS_SQLSERVER_LKUPTABLE1_properties_typeProperties_userName')]"
 					},
 					"LS_SQLSERVER_TBLKUP_properties_typeProperties_server": {
 						"value": "[parameters('LS_SQLSERVER_TBLKUP_properties_typeProperties_server')]"
@@ -685,6 +811,26 @@
 			},
 			"dependsOn": [
 				"[resourceId('Microsoft.Resources/deployments', 'adfdevtestingproject_ArmTemplate_1')]"
+			]
+		},
+		{
+			"name": "adfdevtestingproject_ArmTemplate_3",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2024-03-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_3.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
+					}
+				}
+			},
+			"dependsOn": [
+				"[resourceId('Microsoft.Resources/deployments', 'adfdevtestingproject_ArmTemplate_2')]"
 			]
 		}
 	]

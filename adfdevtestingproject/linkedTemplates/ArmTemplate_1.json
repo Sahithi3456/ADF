@@ -7,6 +7,10 @@
 			"metadata": "Data Factory name",
 			"defaultValue": "adfdevtestingproject"
 		},
+		"blobbinary_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'blobbinary'"
+		},
 		"csvadls001_accountKey": {
 			"type": "secureString",
 			"metadata": "Secure string for 'accountKey' of 'csvadls001'"
@@ -88,6 +92,19 @@
 		"factoryId": "[concat('Microsoft.DataFactory/factories/', parameters('factoryName'))]"
 	},
 	"resources": [
+		{
+			"name": "[concat(parameters('factoryName'), '/blobbinary')]",
+			"type": "Microsoft.DataFactory/factories/linkedServices",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"type": "AzureBlobStorage",
+				"typeProperties": {
+					"connectionString": "[parameters('blobbinary_connectionString')]"
+				}
+			},
+			"dependsOn": []
+		},
 		{
 			"name": "[concat(parameters('factoryName'), '/csvadls001')]",
 			"type": "Microsoft.DataFactory/factories/linkedServices",
@@ -301,12 +318,12 @@
 			"dependsOn": []
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/DS_SQLTABLE_PARQUET')]",
+			"name": "[concat(parameters('factoryName'), '/DS_SQLTABLE_PARQUET1')]",
 			"type": "Microsoft.DataFactory/factories/datasets",
 			"apiVersion": "2018-06-01",
 			"properties": {
 				"linkedServiceName": {
-					"referenceName": "LS_SQLTABLE_PARQUET",
+					"referenceName": "LS_ADLSPARQUET_SQL",
 					"type": "LinkedServiceReference"
 				},
 				"parameters": {
@@ -403,7 +420,9 @@
 					}
 				}
 			},
-			"dependsOn": []
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/linkedServices/blobbinary')]"
+			]
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/csvbinary')]",
@@ -434,51 +453,6 @@
 			},
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/linkedServices/csvbinary')]"
-			]
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/csvsource')]",
-			"type": "Microsoft.DataFactory/factories/datasets",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"linkedServiceName": {
-					"referenceName": "csvsource",
-					"type": "LinkedServiceReference"
-				},
-				"parameters": {
-					"sourcefile": {
-						"type": "String"
-					}
-				},
-				"annotations": [],
-				"type": "DelimitedText",
-				"typeProperties": {
-					"location": {
-						"type": "AzureBlobStorageLocation",
-						"fileName": {
-							"value": "@dataset().sourcefile",
-							"type": "Expression"
-						},
-						"container": "inputcsv"
-					},
-					"columnDelimiter": ",",
-					"escapeChar": "\\",
-					"firstRowAsHeader": true,
-					"quoteChar": "\""
-				},
-				"schema": [
-					{
-						"name": "SIC_Code",
-						"type": "String"
-					},
-					{
-						"name": "Description",
-						"type": "String"
-					}
-				]
-			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/csvsource')]"
 			]
 		}
 	]
