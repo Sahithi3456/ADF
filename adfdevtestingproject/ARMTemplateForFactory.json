@@ -988,6 +988,7 @@
 								"value": "@activity('PL_SQLWATERMARK_TABLE').output.value",
 								"type": "Expression"
 							},
+							"isSequential": false,
 							"activities": [
 								{
 									"name": "EXE_SQLINCREMENTAL_LOAD",
@@ -1117,7 +1118,7 @@
 							"value": "@concat(dataset().Table_Name,'/',formatDateTime(utcNow(),'yyyy/MM/dd'))",
 							"type": "Expression"
 						},
-						"fileSystem": "Retaildevproject"
+						"fileSystem": "parquetoutput"
 					},
 					"compressionCodec": "snappy"
 				},

@@ -310,6 +310,7 @@
 								"value": "@activity('PL_SQLWATERMARK_TABLE').output.value",
 								"type": "Expression"
 							},
+							"isSequential": false,
 							"activities": [
 								{
 									"name": "EXE_SQLINCREMENTAL_LOAD",
