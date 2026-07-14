@@ -26,7 +26,17 @@
 					},
 					"dataset": {
 						"referenceName": "DS_SQLSERVER_TBLKUP",
-						"type": "DatasetReference"
+						"type": "DatasetReference",
+						"parameters": {
+							"schemaname": {
+								"value": "@pipeline().parameters.TableSchema",
+								"type": "Expression"
+							},
+							"tablename": {
+								"value": "@pipeline().parameters.TableName",
+								"type": "Expression"
+							}
+						}
 					},
 					"firstRowOnly": false
 				}
@@ -87,6 +97,14 @@
 				}
 			}
 		],
+		"parameters": {
+			"TableSchema": {
+				"type": "String"
+			},
+			"TableName": {
+				"type": "String"
+			}
+		},
 		"annotations": []
 	}
 }
