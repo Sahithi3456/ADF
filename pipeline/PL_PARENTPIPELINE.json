@@ -26,17 +26,7 @@
 					},
 					"dataset": {
 						"referenceName": "DS_SQLSERVER_TBLKUP",
-						"type": "DatasetReference",
-						"parameters": {
-							"schemaname": {
-								"value": "@pipeline().parameters.TableSchema",
-								"type": "Expression"
-							},
-							"tablename": {
-								"value": "@pipeline().parameters.TableName",
-								"type": "Expression"
-							}
-						}
+						"type": "DatasetReference"
 					},
 					"firstRowOnly": false
 				}
@@ -68,10 +58,6 @@
 							},
 							"userProperties": [],
 							"typeProperties": {
-								"pipeline": {
-									"referenceName": "Child Pipeline Incremental",
-									"type": "PipelineReference"
-								},
 								"waitOnCompletion": true,
 								"parameters": {
 									"TableSchema": {
@@ -97,14 +83,6 @@
 				}
 			}
 		],
-		"parameters": {
-			"TableSchema": {
-				"type": "String"
-			},
-			"TableName": {
-				"type": "String"
-			}
-		},
 		"annotations": []
 	}
 }
