@@ -47,6 +47,10 @@
 			"type": "secureString",
 			"metadata": "Secure string for 'connectionString' of 'LS_GETMETADATA'"
 		},
+		"LS_MAXVALUE_PARQUET_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'LS_MAXVALUE_PARQUET'"
+		},
 		"LS_SQLTABLE_PARQUET_accountKey": {
 			"type": "secureString",
 			"metadata": "Secure string for 'accountKey' of 'LS_SQLTABLE_PARQUET'"
@@ -83,10 +87,6 @@
 			"type": "secureString",
 			"metadata": "Secure string for 'accountKey' of 'adlstext001'"
 		},
-		"adlstextt001_accountKey": {
-			"type": "secureString",
-			"metadata": "Secure string for 'accountKey' of 'adlstextt001'"
-		},
 		"DS_BLOBCSVPARQUET_properties_typeProperties_url": {
 			"type": "string",
 			"defaultValue": "https://adlsdevtestproject001.dfs.core.windows.net/"
@@ -100,6 +100,10 @@
 			"defaultValue": "https://adlsdevtestproject001.dfs.core.windows.net/"
 		},
 		"LS_ADLSPARQUET_SQL_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://adlsdevtestproject001.dfs.core.windows.net"
+		},
+		"LS_MAXVALUE_PARQUET_properties_typeProperties_url": {
 			"type": "string",
 			"defaultValue": "https://adlsdevtestproject001.dfs.core.windows.net"
 		},
@@ -132,10 +136,6 @@
 			"defaultValue": "https://adlsdevtestproject001.dfs.core.windows.net/"
 		},
 		"adlstext001_properties_typeProperties_url": {
-			"type": "string",
-			"defaultValue": "https://adlsdevtestproject001.dfs.core.windows.net/"
-		},
-		"adlstextt001_properties_typeProperties_url": {
 			"type": "string",
 			"defaultValue": "https://adlsdevtestproject001.dfs.core.windows.net/"
 		}
@@ -291,6 +291,23 @@
 			"dependsOn": []
 		},
 		{
+			"name": "[concat(parameters('factoryName'), '/LS_MAXVALUE_PARQUET')]",
+			"type": "Microsoft.DataFactory/factories/linkedServices",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"type": "AzureBlobFS",
+				"typeProperties": {
+					"url": "[parameters('LS_MAXVALUE_PARQUET_properties_typeProperties_url')]",
+					"accountKey": {
+						"type": "SecureString",
+						"value": "[parameters('LS_MAXVALUE_PARQUET_accountKey')]"
+					}
+				}
+			},
+			"dependsOn": []
+		},
+		{
 			"name": "[concat(parameters('factoryName'), '/LS_SQLTABLE_PARQUET')]",
 			"type": "Microsoft.DataFactory/factories/linkedServices",
 			"apiVersion": "2018-06-01",
@@ -434,23 +451,6 @@
 					"accountKey": {
 						"type": "SecureString",
 						"value": "[parameters('adlstext001_accountKey')]"
-					}
-				}
-			},
-			"dependsOn": []
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/adlstextt001')]",
-			"type": "Microsoft.DataFactory/factories/linkedServices",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"annotations": [],
-				"type": "AzureBlobFS",
-				"typeProperties": {
-					"url": "[parameters('adlstextt001_properties_typeProperties_url')]",
-					"accountKey": {
-						"type": "SecureString",
-						"value": "[parameters('adlstextt001_accountKey')]"
 					}
 				}
 			},

@@ -50,6 +50,12 @@
 		"LS_LKUP_MAXVALUE_password": {
 			"value": ""
 		},
+		"LS_MAXLKUP_password": {
+			"value": ""
+		},
+		"LS_MAXVALUE_PARQUET_accountKey": {
+			"value": ""
+		},
 		"LS_ONPREM_SQLSERVER_password": {
 			"value": ""
 		},
@@ -63,6 +69,9 @@
 			"value": ""
 		},
 		"LS_SQLCSV_ADLSPARQUET_password": {
+			"value": ""
+		},
+		"LS_SQLSERVER_password": {
 			"value": ""
 		},
 		"LS_SQLSERVER_LKUPTABLE_password": {
@@ -197,6 +206,18 @@
 		"LS_LKUP_MAXVALUE_properties_typeProperties_userName": {
 			"value": "Sahithisqlserver"
 		},
+		"LS_MAXLKUP_properties_typeProperties_server": {
+			"value": "localhost\\SQLEXPRESS"
+		},
+		"LS_MAXLKUP_properties_typeProperties_database": {
+			"value": "Retaildevproject"
+		},
+		"LS_MAXLKUP_properties_typeProperties_userName": {
+			"value": "Sahithisqlserver"
+		},
+		"LS_MAXVALUE_PARQUET_properties_typeProperties_url": {
+			"value": "https://adlsdevtestproject001.dfs.core.windows.net"
+		},
 		"LS_ONPREM_SQLSERVER_properties_typeProperties_server": {
 			"value": "localhost\\SQLEXPRESS"
 		},
@@ -240,6 +261,15 @@
 			"value": "visionboard"
 		},
 		"LS_SQLCSV_ADLSPARQUET_properties_typeProperties_userName": {
+			"value": "Sahithisqlserver"
+		},
+		"LS_SQLSERVER_properties_typeProperties_server": {
+			"value": " localhost\\SQLEXPRESS"
+		},
+		"LS_SQLSERVER_properties_typeProperties_database": {
+			"value": "Retaildevproject"
+		},
+		"LS_SQLSERVER_properties_typeProperties_userName": {
 			"value": "Sahithisqlserver"
 		},
 		"LS_SQLSERVER_LKUPTABLE_properties_typeProperties_server": {
