@@ -66,7 +66,7 @@
 								},
 								"cases": [
 									{
-										"value": "text01",
+										"value": "txt",
 										"activities": [
 											{
 												"name": "Copy data1",
@@ -131,7 +131,7 @@
 										]
 									},
 									{
-										"value": "csv01",
+										"value": "csv",
 										"activities": [
 											{
 												"name": "Copy data2",
@@ -147,13 +147,14 @@
 												"userProperties": [],
 												"typeProperties": {
 													"source": {
-														"type": "BinarySource",
+														"type": "DelimitedTextSource",
 														"storeSettings": {
 															"type": "AzureBlobStorageReadSettings",
-															"recursive": true
+															"recursive": true,
+															"enablePartitionDiscovery": false
 														},
 														"formatSettings": {
-															"type": "BinaryReadSettings"
+															"type": "DelimitedTextReadSettings"
 														}
 													},
 													"sink": {
@@ -167,11 +168,19 @@
 															"fileExtension": ".txt"
 														}
 													},
-													"enableStaging": false
+													"enableStaging": false,
+													"translator": {
+														"type": "TabularTranslator",
+														"typeConversion": true,
+														"typeConversionSettings": {
+															"allowDataTruncation": true,
+															"treatBooleanAsNumber": false
+														}
+													}
 												},
 												"inputs": [
 													{
-														"referenceName": "ds_binary01",
+														"referenceName": "ds_csvblob",
 														"type": "DatasetReference",
 														"parameters": {
 															"sourcefile": {
