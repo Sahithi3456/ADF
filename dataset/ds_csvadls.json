@@ -1,0 +1,38 @@
+{
+	"name": "ds_csvadls",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "ls_csvadls001",
+			"type": "LinkedServiceReference"
+		},
+		"parameters": {
+			"Targetfolder": {
+				"type": "string"
+			},
+			"Targetfilename": {
+				"type": "string"
+			}
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileName": {
+					"value": "@dataset().Targetfilename",
+					"type": "Expression"
+				},
+				"folderPath": {
+					"value": "@dataset().Targetfolder",
+					"type": "Expression"
+				},
+				"fileSystem": "outputcsv"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": []
+	}
+}
