@@ -33,6 +33,118 @@
 						"type": "BinaryReadSettings"
 					}
 				}
+			},
+			{
+				"name": "ForEachgetmetadata01",
+				"type": "ForEach",
+				"dependsOn": [
+					{
+						"activity": "getmetadata01",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"userProperties": [],
+				"typeProperties": {
+					"items": {
+						"value": "@activity('getmetadata01').output.childItems",
+						"type": "Expression"
+					},
+					"isSequential": true,
+					"activities": [
+						{
+							"name": "Switch01",
+							"type": "Switch",
+							"dependsOn": [],
+							"userProperties": [],
+							"typeProperties": {
+								"on": {
+									"value": "@last(split(item().name,'.'))",
+									"type": "Expression"
+								},
+								"cases": [
+									{
+										"value": "text01",
+										"activities": [
+											{
+												"name": "Copy data1",
+												"type": "Copy",
+												"dependsOn": [],
+												"policy": {
+													"timeout": "0.12:00:00",
+													"retry": 0,
+													"retryIntervalInSeconds": 30,
+													"secureOutput": false,
+													"secureInput": false
+												},
+												"userProperties": [],
+												"typeProperties": {
+													"source": {
+														"type": "BinarySource",
+														"storeSettings": {
+															"type": "AzureBlobStorageReadSettings",
+															"recursive": true
+														},
+														"formatSettings": {
+															"type": "BinaryReadSettings"
+														}
+													},
+													"sink": {
+														"type": "BinarySink",
+														"storeSettings": {
+															"type": "AzureBlobFSWriteSettings"
+														}
+													},
+													"enableStaging": false
+												},
+												"inputs": [
+													{
+														"referenceName": "ds_binary01",
+														"type": "DatasetReference",
+														"parameters": {
+															"sourcefile": {
+																"value": "@item().name",
+																"type": "Expression"
+															}
+														}
+													}
+												],
+												"outputs": [
+													{
+														"referenceName": "ds_adlsbinary01",
+														"type": "DatasetReference"
+													}
+												]
+											}
+										]
+									},
+									{
+										"value": "csv01",
+										"activities": [
+											{
+												"name": "Copy data2",
+												"type": "Copy",
+												"dependsOn": [],
+												"policy": {
+													"timeout": "0.12:00:00",
+													"retry": 0,
+													"retryIntervalInSeconds": 30,
+													"secureOutput": false,
+													"secureInput": false
+												},
+												"userProperties": [],
+												"typeProperties": {
+													"enableStaging": false
+												}
+											}
+										]
+									}
+								]
+							}
+						}
+					]
+				}
 			}
 		],
 		"annotations": []
