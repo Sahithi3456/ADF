@@ -183,6 +183,18 @@
 			"type": "secureString",
 			"metadata": "Secure string for 'connectionString' of 'ls_binary'"
 		},
+		"ls_binary01_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'ls_binary01'"
+		},
+		"ls_binaryadls01_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'ls_binaryadls01'"
+		},
+		"ls_csvadls001_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'ls_csvadls001'"
+		},
 		"outpuradlscsv_accountKey": {
 			"type": "secureString",
 			"metadata": "Secure string for 'accountKey' of 'outpuradlscsv'"
@@ -451,6 +463,14 @@
 			"type": "string",
 			"defaultValue": "https://adlsdevtestproject001.dfs.core.windows.net/"
 		},
+		"ls_binaryadls01_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://adlsdevtestproject001.dfs.core.windows.net/"
+		},
+		"ls_csvadls001_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://adlsdevtestproject001.dfs.core.windows.net/"
+		},
 		"outpuradlscsv_properties_typeProperties_url": {
 			"type": "string",
 			"defaultValue": "https://adlsdevtestproject001.dfs.core.windows.net/"
@@ -635,6 +655,15 @@
 					"ls_binary_connectionString": {
 						"value": "[parameters('ls_binary_connectionString')]"
 					},
+					"ls_binary01_connectionString": {
+						"value": "[parameters('ls_binary01_connectionString')]"
+					},
+					"ls_binaryadls01_accountKey": {
+						"value": "[parameters('ls_binaryadls01_accountKey')]"
+					},
+					"ls_csvadls001_accountKey": {
+						"value": "[parameters('ls_csvadls001_accountKey')]"
+					},
 					"outpuradlscsv_accountKey": {
 						"value": "[parameters('outpuradlscsv_accountKey')]"
 					},
@@ -664,6 +693,12 @@
 					},
 					"csvadls001_properties_typeProperties_url": {
 						"value": "[parameters('csvadls001_properties_typeProperties_url')]"
+					},
+					"ls_binaryadls01_properties_typeProperties_url": {
+						"value": "[parameters('ls_binaryadls01_properties_typeProperties_url')]"
+					},
+					"ls_csvadls001_properties_typeProperties_url": {
+						"value": "[parameters('ls_csvadls001_properties_typeProperties_url')]"
 					},
 					"outpuradlscsv_properties_typeProperties_url": {
 						"value": "[parameters('outpuradlscsv_properties_typeProperties_url')]"
@@ -718,27 +753,6 @@
 					"LS_ONPREM_SQLSERVER_password": {
 						"value": "[parameters('LS_ONPREM_SQLSERVER_password')]"
 					},
-					"LS_ONPREM_SQLsERVER_DW_password": {
-						"value": "[parameters('LS_ONPREM_SQLsERVER_DW_password')]"
-					},
-					"LS_PARENTLKUP_password": {
-						"value": "[parameters('LS_PARENTLKUP_password')]"
-					},
-					"LS_PARENT_SQLSERVER_DW_password": {
-						"value": "[parameters('LS_PARENT_SQLSERVER_DW_password')]"
-					},
-					"LS_SQLCSV_ADLSPARQUET_password": {
-						"value": "[parameters('LS_SQLCSV_ADLSPARQUET_password')]"
-					},
-					"LS_SQLSERVER_password": {
-						"value": "[parameters('LS_SQLSERVER_password')]"
-					},
-					"LS_SQLSERVER_LKUPTABLE_password": {
-						"value": "[parameters('LS_SQLSERVER_LKUPTABLE_password')]"
-					},
-					"LS_SQLSERVER_LKUPTABLE1_password": {
-						"value": "[parameters('LS_SQLSERVER_LKUPTABLE1_password')]"
-					},
 					"DS_ADLSPARQUET_properties_typeProperties_url": {
 						"value": "[parameters('DS_ADLSPARQUET_properties_typeProperties_url')]"
 					},
@@ -789,6 +803,53 @@
 					},
 					"LS_ONPREM_SQLSERVER_properties_typeProperties_userName": {
 						"value": "[parameters('LS_ONPREM_SQLSERVER_properties_typeProperties_userName')]"
+					}
+				}
+			},
+			"dependsOn": [
+				"[resourceId('Microsoft.Resources/deployments', 'adfdevtestingproject_ArmTemplate_1')]"
+			]
+		},
+		{
+			"name": "adfdevtestingproject_ArmTemplate_3",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2024-03-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_3.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
+					},
+					"LS_ONPREM_SQLsERVER_DW_password": {
+						"value": "[parameters('LS_ONPREM_SQLsERVER_DW_password')]"
+					},
+					"LS_PARENTLKUP_password": {
+						"value": "[parameters('LS_PARENTLKUP_password')]"
+					},
+					"LS_PARENT_SQLSERVER_DW_password": {
+						"value": "[parameters('LS_PARENT_SQLSERVER_DW_password')]"
+					},
+					"LS_SQLCSV_ADLSPARQUET_password": {
+						"value": "[parameters('LS_SQLCSV_ADLSPARQUET_password')]"
+					},
+					"LS_SQLSERVER_password": {
+						"value": "[parameters('LS_SQLSERVER_password')]"
+					},
+					"LS_SQLSERVER_LKUPTABLE_password": {
+						"value": "[parameters('LS_SQLSERVER_LKUPTABLE_password')]"
+					},
+					"LS_SQLSERVER_LKUPTABLE1_password": {
+						"value": "[parameters('LS_SQLSERVER_LKUPTABLE1_password')]"
+					},
+					"LS_SQLSERVER_TBLKUP_password": {
+						"value": "[parameters('LS_SQLSERVER_TBLKUP_password')]"
+					},
+					"LS_SQLSERVER_TBLLKUP_password": {
+						"value": "[parameters('LS_SQLSERVER_TBLLKUP_password')]"
 					},
 					"LS_ONPREM_SQLsERVER_DW_properties_typeProperties_server": {
 						"value": "[parameters('LS_ONPREM_SQLsERVER_DW_properties_typeProperties_server')]"
@@ -852,32 +913,6 @@
 					},
 					"LS_SQLSERVER_LKUPTABLE1_properties_typeProperties_userName": {
 						"value": "[parameters('LS_SQLSERVER_LKUPTABLE1_properties_typeProperties_userName')]"
-					}
-				}
-			},
-			"dependsOn": [
-				"[resourceId('Microsoft.Resources/deployments', 'adfdevtestingproject_ArmTemplate_1')]"
-			]
-		},
-		{
-			"name": "adfdevtestingproject_ArmTemplate_3",
-			"type": "Microsoft.Resources/deployments",
-			"apiVersion": "2024-03-01",
-			"properties": {
-				"mode": "incremental",
-				"templateLink": {
-					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_3.json', parameters('containerSasToken'))]",
-					"contentVersion": "1.0.0.0"
-				},
-				"parameters": {
-					"factoryName": {
-						"value": "[parameters('factoryName')]"
-					},
-					"LS_SQLSERVER_TBLKUP_password": {
-						"value": "[parameters('LS_SQLSERVER_TBLKUP_password')]"
-					},
-					"LS_SQLSERVER_TBLLKUP_password": {
-						"value": "[parameters('LS_SQLSERVER_TBLLKUP_password')]"
 					},
 					"LS_SQLSERVER_TBLKUP_properties_typeProperties_server": {
 						"value": "[parameters('LS_SQLSERVER_TBLKUP_properties_typeProperties_server')]"
@@ -901,6 +936,26 @@
 			},
 			"dependsOn": [
 				"[resourceId('Microsoft.Resources/deployments', 'adfdevtestingproject_ArmTemplate_2')]"
+			]
+		},
+		{
+			"name": "adfdevtestingproject_ArmTemplate_4",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2024-03-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_4.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
+					}
+				}
+			},
+			"dependsOn": [
+				"[resourceId('Microsoft.Resources/deployments', 'adfdevtestingproject_ArmTemplate_3')]"
 			]
 		}
 	]

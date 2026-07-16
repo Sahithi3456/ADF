@@ -137,6 +137,15 @@
 		"ls_binary_connectionString": {
 			"value": ""
 		},
+		"ls_binary01_connectionString": {
+			"value": ""
+		},
+		"ls_binaryadls01_accountKey": {
+			"value": ""
+		},
+		"ls_csvadls001_accountKey": {
+			"value": ""
+		},
 		"outpuradlscsv_accountKey": {
 			"value": ""
 		},
@@ -336,6 +345,12 @@
 			"value": "https://adlsdevtestproject001.dfs.core.windows.net/"
 		},
 		"csvadls001_properties_typeProperties_url": {
+			"value": "https://adlsdevtestproject001.dfs.core.windows.net/"
+		},
+		"ls_binaryadls01_properties_typeProperties_url": {
+			"value": "https://adlsdevtestproject001.dfs.core.windows.net/"
+		},
+		"ls_csvadls001_properties_typeProperties_url": {
 			"value": "https://adlsdevtestproject001.dfs.core.windows.net/"
 		},
 		"outpuradlscsv_properties_typeProperties_url": {
