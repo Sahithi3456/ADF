@@ -832,7 +832,7 @@
 										},
 										"cases": [
 											{
-												"value": "text01",
+												"value": "txt",
 												"activities": [
 													{
 														"name": "Copy data1",
@@ -897,7 +897,7 @@
 												]
 											},
 											{
-												"value": "csv01",
+												"value": "csv",
 												"activities": [
 													{
 														"name": "Copy data2",
