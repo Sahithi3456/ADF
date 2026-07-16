@@ -17,7 +17,10 @@
 				"typeProperties": {
 					"dataset": {
 						"referenceName": "ds_binary01",
-						"type": "DatasetReference"
+						"type": "DatasetReference",
+						"parameters": {
+							"sourcefile": "*"
+						}
 					},
 					"fieldList": [
 						"childItems"
