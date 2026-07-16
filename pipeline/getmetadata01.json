@@ -113,7 +113,17 @@
 												"outputs": [
 													{
 														"referenceName": "ds_adlsbinary01",
-														"type": "DatasetReference"
+														"type": "DatasetReference",
+														"parameters": {
+															"Targetfolder": {
+																"value": "@'textoutput'",
+																"type": "Expression"
+															},
+															"Targetfilename": {
+																"value": "@item().name",
+																"type": "Expression"
+															}
+														}
 													}
 												]
 											}
