@@ -1,0 +1,23 @@
+{
+	"name": "DS_SINK_BLOB_SNOW_PARQUET",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "LS_SINK_BLOB_SNOW_PARQUET",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Parquet",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"folderPath": {
+					"value": "@concat(\n    'snowflake/',\n    formatDateTime(utcNow(), 'yyyy'), '/',\n    formatDateTime(utcNow(), 'mm'), '/',\n    formatDateTime(utcNow(), 'dd')\n)",
+					"type": "Expression"
+				},
+				"container": "input"
+			},
+			"compressionCodec": "snappy"
+		},
+		"schema": []
+	}
+}
