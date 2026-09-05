@@ -1,0 +1,20 @@
+{
+	"name": "DS_SINK_RESTAPI_PARQUET",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "LS_SINK_RESTAPI_PARQUET",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Parquet",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"folderPath": "restapi",
+				"fileSystem": "inputsrc"
+			},
+			"compressionCodec": "snappy"
+		},
+		"schema": []
+	}
+}
