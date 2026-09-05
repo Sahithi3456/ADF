@@ -45,7 +45,13 @@
 				"inputs": [
 					{
 						"referenceName": "DS_SOURCE_EXCEL_PARQUET",
-						"type": "DatasetReference"
+						"type": "DatasetReference",
+						"parameters": {
+							"dataset": {
+								"value": "@pipeline().parameters.xlsx",
+								"type": "Expression"
+							}
+						}
 					}
 				],
 				"outputs": [
@@ -56,6 +62,14 @@
 				]
 			}
 		],
+		"parameters": {
+			".xlsx": {
+				"type": "String"
+			},
+			"xlsx": {
+				"type": "String"
+			}
+		},
 		"annotations": []
 	}
 }
