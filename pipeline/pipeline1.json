@@ -1,0 +1,16 @@
+{
+	"name": "pipeline1",
+	"properties": {
+		"parameters": {
+			"Trigger": {
+				"type": "string"
+			}
+		},
+		"variables": {
+			"Mapping": {
+				"type": "String"
+			}
+		},
+		"annotations": []
+	}
+}
