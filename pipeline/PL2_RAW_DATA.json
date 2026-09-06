@@ -49,7 +49,31 @@
 					},
 					"cases": [
 						{
-							"value": "CloudStorage"
+							"value": "CloudStorage",
+							"activities": [
+								{
+									"name": "EXEC_PL3_CLOUD",
+									"type": "ExecutePipeline",
+									"dependsOn": [],
+									"policy": {
+										"secureInput": false
+									},
+									"userProperties": [],
+									"typeProperties": {
+										"pipeline": {
+											"referenceName": "PL3_CLOUD_CSV_EXCEL",
+											"type": "PipelineReference"
+										},
+										"waitOnCompletion": true,
+										"parameters": {
+											"Trigger": {
+												"value": "@pipeline().parameters.Trigger",
+												"type": "Expression"
+											}
+										}
+									}
+								}
+							]
 						},
 						{
 							"value": "api"
