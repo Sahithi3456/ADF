@@ -1,0 +1,20 @@
+{
+	"name": "DS_SOURCE_EXCEL_PARQUET",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "DS_SOURCE_EXCEL_PARQUET",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Excel",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileName": "olist_order_reviews_dataset.xlsx",
+				"folderPath": "excel",
+				"fileSystem": "input"
+			}
+		},
+		"schema": []
+	}
+}
