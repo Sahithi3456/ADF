@@ -49,7 +49,25 @@
 					},
 					"cases": [
 						{
-							"value": "Azure"
+							"value": "Azure",
+							"activities": [
+								{
+									"name": "Exec_CSV_FILE",
+									"type": "ExecutePipeline",
+									"dependsOn": [],
+									"policy": {
+										"secureInput": false
+									},
+									"userProperties": [],
+									"typeProperties": {
+										"pipeline": {
+											"referenceName": "PL_CSV_PARQUET",
+											"type": "PipelineReference"
+										},
+										"waitOnCompletion": true
+									}
+								}
+							]
 						},
 						{
 							"value": "Aws"
