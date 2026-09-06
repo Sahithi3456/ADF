@@ -1,0 +1,12 @@
+{
+	"name": "DS_FILETYPE_CSV_EXCEL",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "LS_FILETYPE_CSV_EXCEL",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": []
+	}
+}
