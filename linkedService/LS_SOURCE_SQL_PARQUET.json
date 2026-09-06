@@ -1,0 +1,21 @@
+{
+	"name": "LS_SOURCE_SQL_PARQUET",
+	"type": "Microsoft.DataFactory/factories/linkedservices",
+	"properties": {
+		"annotations": [],
+		"type": "SqlServer",
+		"typeProperties": {
+			"server": "localhost\\SQLEXPRESS",
+			"database": "B11endtoendproject",
+			"encrypt": "optional",
+			"trustServerCertificate": false,
+			"authenticationType": "SQL",
+			"userName": "Sahithisqlserver",
+			"encryptedCredential": "eyJDcmVkZW50aWFsSWQiOiJlOTdhZWEwYS1kYmJjLTRmYTMtYWU0Zi0yZjg0MWFkMjgxOGUiLCJWZXJzaW9uIjoiMi4wIiwiQ2xhc3NUeXBlIjoiTWljcm9zb2Z0LkRhdGFQcm94eS5Db3JlLkludGVyU2VydmljZURhdGFDb250cmFjdC5DcmVkZW50aWFsU1UwNkNZMTQifQ=="
+		},
+		"connectVia": {
+			"referenceName": "integrationRuntime01",
+			"type": "IntegrationRuntimeReference"
+		}
+	}
+}
