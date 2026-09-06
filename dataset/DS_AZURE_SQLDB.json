@@ -5,6 +5,11 @@
 			"referenceName": "LS_AZURE_SQLDB",
 			"type": "LinkedServiceReference"
 		},
+		"parameters": {
+			"Trigger": {
+				"type": "string"
+			}
+		},
 		"annotations": [],
 		"type": "AzureSqlTable",
 		"schema": []

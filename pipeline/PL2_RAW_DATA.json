@@ -26,8 +26,15 @@
 					},
 					"dataset": {
 						"referenceName": "DS_AZURE_SQLDB",
-						"type": "DatasetReference"
-					}
+						"type": "DatasetReference",
+						"parameters": {
+							"Trigger": {
+								"value": "@pipeline().parameters.Trigger",
+								"type": "Expression"
+							}
+						}
+					},
+					"firstRowOnly": true
 				}
 			},
 			{
