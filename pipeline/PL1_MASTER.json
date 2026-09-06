@@ -35,6 +35,10 @@
 				},
 				"userProperties": [],
 				"typeProperties": {
+					"pipeline": {
+						"referenceName": "PL2_RAW_DATA",
+						"type": "PipelineReference"
+					},
 					"waitOnCompletion": true,
 					"parameters": {
 						"Trigger": {
