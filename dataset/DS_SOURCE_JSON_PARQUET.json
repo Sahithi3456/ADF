@@ -1,0 +1,39 @@
+{
+	"name": "DS_SOURCE_JSON_PARQUET",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "LS_SOURCE_JSON_PARQUET",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Json",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileName": "olist_customers_dataset.json",
+				"folderPath": "json",
+				"fileSystem": "input"
+			}
+		},
+		"schema": {
+			"type": "object",
+			"properties": {
+				"customer_id": {
+					"type": "string"
+				},
+				"customer_unique_id": {
+					"type": "string"
+				},
+				"customer_zip_code_prefix": {
+					"type": "integer"
+				},
+				"customer_city": {
+					"type": "string"
+				},
+				"customer_state": {
+					"type": "string"
+				}
+			}
+		}
+	}
+}

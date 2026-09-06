@@ -1,0 +1,20 @@
+{
+	"name": "DS_SINK_JSON_PARQUET",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "LS_SINK_JSON_PARQUET",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Parquet",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"folderPath": "json",
+				"fileSystem": "inputsrc"
+			},
+			"compressionCodec": "snappy"
+		},
+		"schema": []
+	}
+}
