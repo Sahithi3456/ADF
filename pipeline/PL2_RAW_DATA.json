@@ -76,22 +76,88 @@
 							]
 						},
 						{
-							"value": "api"
+							"value": "api",
+							"activities": [
+								{
+									"name": "Wait1",
+									"type": "Wait",
+									"dependsOn": [],
+									"userProperties": [],
+									"typeProperties": {
+										"waitTimeInSeconds": 1
+									}
+								}
+							]
 						},
 						{
-							"value": "sql"
+							"value": "sql",
+							"activities": [
+								{
+									"name": "Wait2",
+									"type": "Wait",
+									"dependsOn": [],
+									"userProperties": [],
+									"typeProperties": {
+										"waitTimeInSeconds": 1
+									}
+								}
+							]
 						},
 						{
-							"value": "snowflake"
+							"value": "snowflake",
+							"activities": [
+								{
+									"name": "Wait3",
+									"type": "Wait",
+									"dependsOn": [],
+									"userProperties": [],
+									"typeProperties": {
+										"waitTimeInSeconds": 1
+									}
+								}
+							]
 						},
 						{
-							"value": "bulkupload"
+							"value": "bulkupload",
+							"activities": [
+								{
+									"name": "Wait4",
+									"type": "Wait",
+									"dependsOn": [],
+									"userProperties": [],
+									"typeProperties": {
+										"waitTimeInSeconds": 1
+									}
+								}
+							]
 						},
 						{
-							"value": "json"
+							"value": "json",
+							"activities": [
+								{
+									"name": "Wait5",
+									"type": "Wait",
+									"dependsOn": [],
+									"userProperties": [],
+									"typeProperties": {
+										"waitTimeInSeconds": 1
+									}
+								}
+							]
 						},
 						{
-							"value": "sftp"
+							"value": "sftp",
+							"activities": [
+								{
+									"name": "Wait6",
+									"type": "Wait",
+									"dependsOn": [],
+									"userProperties": [],
+									"typeProperties": {
+										"waitTimeInSeconds": 1
+									}
+								}
+							]
 						}
 					]
 				}
