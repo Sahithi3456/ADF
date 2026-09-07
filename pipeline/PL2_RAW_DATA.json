@@ -51,7 +51,7 @@
 				"userProperties": [],
 				"typeProperties": {
 					"on": {
-						"value": "@activity('LKUP_L2_TYPE').output.firstRow.L2_switch_type",
+						"value": "@activity('LKUP_L2_TYPE').output.value[0].L2_switch_type",
 						"type": "Expression"
 					},
 					"cases": [

@@ -27,7 +27,8 @@
 					"dataset": {
 						"referenceName": "DS_SOURCE_SQLDB_AZURE",
 						"type": "DatasetReference"
-					}
+					},
+					"firstRowOnly": true
 				}
 			},
 			{
