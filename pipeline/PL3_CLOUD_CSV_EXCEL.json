@@ -28,7 +28,7 @@
 						"referenceName": "DS_SOURCE_SQLDB_AZURE",
 						"type": "DatasetReference"
 					},
-					"firstRowOnly": true
+					"firstRowOnly": false
 				}
 			},
 			{
@@ -45,7 +45,7 @@
 				"userProperties": [],
 				"typeProperties": {
 					"on": {
-						"value": "@activity('LKUP_SOURCE_FILES').output.firstRow.L3_switch_type",
+						"value": "@activity('LKUP_SOURCE_FILES').output.value[0].L3_switch_type",
 						"type": "Expression"
 					},
 					"cases": [
